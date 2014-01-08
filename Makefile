@@ -4,6 +4,7 @@ pack:
 				 index.html \
 				 index.js \
 				 index.css \
+				 images \
 				 module \
 				 config \
 				 node_modules \

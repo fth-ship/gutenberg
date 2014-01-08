@@ -6,12 +6,14 @@
     <link href="./index.css" rel="stylesheet" />
 </head>
 <body style="-webkit-app-region: drag;">
-  <textarea 
-    id="board" 
-    class='gutenberg-board' 
-    resize="none",
-    placeholder='{{message}}'
-  ></textarea>
+  <div class="main-holder">
+    <textarea 
+      id="board" 
+      class='gutenberg-board' 
+      resize="none",
+      placeholder='{{message}}'
+    ></textarea>
+  </div>
 
   <script src="./bower_components/file-saver/FileSaver.js"></script>
   <script src="./index.js"></script>
