@@ -2,10 +2,17 @@
   "name": "gutenberg",
   "main": "index.html",
   "window": {
-    "toolbar": false
+    "title": "Gutenberg",
+    "toolbar": false,
+    "frame": true,
+    "position": "center",
+    "fullscreen": false,
+    "width": 800,
+    "height": 600
   },
   "dependencies": {
     "should": "~2.1.1",
-    "debug": "~0.7.4"
+    "debug": "~0.7.4",
+    "monotonic-timestamp": "0.0.8"
   }
 }

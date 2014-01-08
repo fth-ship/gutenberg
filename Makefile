@@ -5,7 +5,9 @@ pack:
 				 index.js \
 				 index.css \
 				 module \
-				 node_modules
+				 config \
+				 node_modules \
+				 bower_components
 
 run:
 	nw gutenberg.nw

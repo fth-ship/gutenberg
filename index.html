@@ -5,7 +5,8 @@
     <title>Gutenberg</title>
     <link href="./index.css" rel="stylesheet" />
 </head>
-<body>
+<body style="-webkit-app-region: drag;">
+  <button id="save" style="float:right;">Salvar</button>
   <textarea 
     id="board" 
     class='gutenberg-board' 
@@ -13,6 +14,7 @@
     placeholder='{{message}}'
   ></textarea>
 
+  <script src="./bower_components/file-saver/FileSaver.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>
