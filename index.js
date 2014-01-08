@@ -2,13 +2,36 @@
   var Gutenberg = window.Gutenberg || {};
   // 3 modules
   var timestamp = require('monotonic-timestamp');
+  var gui = require('nw.gui');
   // messages
   var config = require('./config');
   // local methods
   var template = null;
   var run = null;
+
+  var saveButton = null;
   
   template = Gutenberg.template = require('./module/template');
+
+  function gutenbergSetMenuHandler () {
+    var main = new gui.Menu({
+      type: 'menubar'  
+    });  
+    var file = new gui.MenuItem({
+      label: 'Arquivo'  
+    });
+    var itemSave = saveButton = new gui.MenuItem({
+      label: 'Salvar'  
+    });
+    var fileSubmenu = new gui.Menu();
+
+    main.append( file );
+    fileSubmenu.append( itemSave );
+    file.submenu = fileSubmenu;
+    gui.Window.get().menu = main;
+
+    return Gutenberg;
+  }
 
   function gutenbergSetBoardHandler () {
     var board = document.getElementById('board');
@@ -22,7 +45,7 @@
   }
 
   function gutenbergEnableSaveAsHandler () {
-    var saveBtn = document.getElementById('save');
+    var saveBtn = saveButton;
     var board = document.getElementById('board');
     var content = '';
     var blob = null;
@@ -36,12 +59,13 @@
       filename += '.txt';
       saveAs( blob, filename );
     }
-    saveBtn.onclick = saveBtnClickHandler;
+    saveBtn.click = saveBtnClickHandler;
 
     return Gutenberg;  
   }
 
   function gutenbergRunHandler () {
+    gutenbergSetMenuHandler();
     gutenbergSetBoardHandler();
     gutenbergEnableSaveAsHandler();
 
